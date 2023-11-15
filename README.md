@@ -1,27 +1,47 @@
-# ConsultappFrontend
+# ConsultAPP
+![texto alt](https://www.brainandlife.org/siteassets/online-exclusives/covid-19/telehealth-computer-main.jpg) 
+### Temas desarrollados
+1. ***Angular 16***
+2. Guard
+3. Angular Material
+4. Integración con Spring
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.2.5.
+[Documentación](https://angular.io/)
 
-## Development server
+```typescript
+export class GenericService<T> {
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+  constructor(
+    protected http:HttpClient,
+    @Inject("url") protected url:string
+  ) { }
 
-## Code scaffolding
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+  listar(){
+    return this.http.get<T[]>(this.url);
+  }
 
-## Build
+  listarPorId(id: number){
+    return this.http.get<T>(`${this.url}/${id}`);
+  }
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+  registrar(t: T){
+    return this.http.post(this.url, t);
+  }
 
-## Running unit tests
+  modificar(t: T){
+    return this.http.put(this.url, t);
+  }
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+  eliminarPorId(id: number){
+    return this.http.delete(`${this.url}/${id}`);
+  }
 
-## Running end-to-end tests
+}
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+```
 
-## Further help
+> El código perfecto no existe
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+
+
