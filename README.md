@@ -44,4 +44,9 @@ export class GenericService<T> {
 > El código perfecto no existe
 
 
+### Dependencias
 
+```cmd
+$ npm install @auth0/angular-jwt
+
+```
