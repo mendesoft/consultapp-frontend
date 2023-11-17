@@ -29,7 +29,7 @@ export const CertGuard = (route: ActivatedRouteSnapshot, state: RouterStateSnaps
         const decodedToken = helper.decodeToken(token);
         const username = decodedToken.sub;
 
-        return menuService.getMenusByUsername(username).pipe(map( (data: Menu[]) => {
+        return menuService.getMenusByUser(username).pipe(map( (data: Menu[]) => {
             menuService.setMenuChange(data);
 
             let count = 0;

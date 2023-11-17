@@ -8,24 +8,27 @@ import { Subject } from 'rxjs';
 @Injectable({
   providedIn: 'root'
 })
-export class MenuService extends GenericService<Menu>{
+export class MenuService extends GenericService<Menu> {
 
   private menuChange = new Subject<Menu[]>();
 
-  constructor(http:HttpClient) {
-    super(http, `${environment.HOST}/menus`);
+  constructor(http: HttpClient) {
+    super(
+      http,
+      `${environment.HOST}/menus`);
   }
 
-  getMenusByUsername(username:string) {
-      return this.http.post<Menu[]>(`${this.url}/user`, username);
+  getMenusByUser(username: string){
+    return this.http.post<Menu[]>(`${this.url}/user`, username);
   }
 
   getMenuChange(){
+    console.log("GETMENUCHANGE")
     return this.menuChange.asObservable();
   }
 
-  setMenuChange(menus:Menu[]){
+  setMenuChange(menus: Menu[]){
+    console.log("setMenuChange")
     this.menuChange.next(menus);
   }
-
 }
