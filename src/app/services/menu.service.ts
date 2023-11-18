@@ -23,12 +23,10 @@ export class MenuService extends GenericService<Menu> {
   }
 
   getMenuChange(){
-    console.log("GETMENUCHANGE")
     return this.menuChange.asObservable();
   }
 
   setMenuChange(menus: Menu[]){
-    console.log("setMenuChange")
     this.menuChange.next(menus);
   }
 }

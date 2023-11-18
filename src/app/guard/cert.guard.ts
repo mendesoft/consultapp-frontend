@@ -43,7 +43,7 @@ export const CertGuard = (route: ActivatedRouteSnapshot, state: RouterStateSnaps
             if(count > 0){
                 return true;
             }else{
-                router.navigate(['/pages/not-403']);
+                router.navigate(['not-403']);
                 return false;
             }
         }));
