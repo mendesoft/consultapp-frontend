@@ -1,7 +1,7 @@
 # ConsultAPP
 ![texto alt](https://www.brainandlife.org/siteassets/online-exclusives/covid-19/telehealth-computer-main.jpg) 
 ### Temas desarrollados
-1. ***Angular 16***
+1. ***Angular***
 2. Guard
 3. Angular Material
 4. Integración con Spring

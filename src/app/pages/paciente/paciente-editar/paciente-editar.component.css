@@ -1,0 +1,16 @@
+.example-container {
+  padding: 0.5%;
+  display: flex;
+  flex-direction: column;
+}
+
+.example-container>* {
+  width: 100%;
+}
+
+.invalid {
+  color: red;
+}
+
+
+

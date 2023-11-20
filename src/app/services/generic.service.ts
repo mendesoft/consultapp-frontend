@@ -24,8 +24,8 @@ export class GenericService<T> {
     return this.http.post(this.url, t);
   }
 
-  modificar(t: T){
-    return this.http.put(this.url, t);
+  modificar(id:number, t: T){
+    return this.http.put(`${this.url}/${id}`, t);
   }
 
   eliminarPorId(id: number){
