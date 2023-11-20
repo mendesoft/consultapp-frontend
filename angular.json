@@ -61,10 +61,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "consultapp-frontend:build:production"
+              "buildTarget": "consultapp-frontend:build:production"
             },
             "development": {
-              "browserTarget": "consultapp-frontend:build:development"
+              "buildTarget": "consultapp-frontend:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -72,7 +72,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "consultapp-frontend:build"
+            "buildTarget": "consultapp-frontend:build"
           }
         },
         "test": {
