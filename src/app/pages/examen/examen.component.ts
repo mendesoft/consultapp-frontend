@@ -1,22 +1,23 @@
-import { NgFor, NgIf } from '@angular/common';
-import { Component, Input, OnInit, ViewChild } from '@angular/core';
-import { MatPaginator } from '@angular/material/paginator';
-import { MatSnackBar } from '@angular/material/snack-bar';
-import { MatSort } from '@angular/material/sort';
-import { MatTableDataSource } from '@angular/material/table';
-import { RouterLink, RouterOutlet } from '@angular/router';
-import { switchMap } from 'rxjs';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { CommonModule, NgFor, NgIf } from '@angular/common';
 import { MaterialModule } from 'src/app/material/material/material.module';
-import { Paciente } from 'src/app/model/paciente';
-import { PacienteService } from 'src/app/services/paciente.service';
+import { RouterLink, RouterOutlet } from '@angular/router';
+import { MatPaginator } from '@angular/material/paginator';
+import { MatSort } from '@angular/material/sort';
+import { ExamenService } from 'src/app/services/examen.service';
+import { MatSnackBar } from '@angular/material/snack-bar';
+import { MatTableDataSource } from '@angular/material/table';
+import { Examen } from 'src/app/model/examen';
+import { switchMap } from 'rxjs';
+
 @Component({
-  selector: 'app-paciente',
-  standalone:true,
-  templateUrl: './paciente.component.html',
-  styleUrls: ['./paciente.component.css'],
+  selector: 'app-examen',
+  standalone: true,
+  templateUrl: './examen.component.html',
+  styleUrl: './examen.component.css',
   imports:[MaterialModule,NgFor,RouterLink, RouterOutlet,NgIf]
 })
-export class PacienteComponent implements OnInit{
+export class ExamenComponent implements OnInit{
 
 
   @ViewChild(MatPaginator) paginator!: MatPaginator;
@@ -25,20 +26,20 @@ export class PacienteComponent implements OnInit{
   totalElement:number = 0;
 
   constructor(
-    private service:PacienteService,
+    private service:ExamenService,
     private _snackBar:MatSnackBar
     ){}
 
 
-  displayedColumns: string[] = ['idPaciente', 'nombres', 'apellidos', 'acciones'];
-  dataSource?: MatTableDataSource<Paciente>;
+  displayedColumns: string[] = ['idExamen', 'nombre', 'acciones'];
+  dataSource?: MatTableDataSource<Examen>;
 
 
-  pacientes:Paciente[] = [];
+  examenes:Examen[] = [];
 
   ngOnInit(): void {
 
-    this.service.getPacienteChange().subscribe(data => {
+    this.service.getExamenChange().subscribe(data => {
       this.createTable(data);
     });
 
@@ -61,13 +62,13 @@ export class PacienteComponent implements OnInit{
       this.dataSource.filter = e.target.value.trim();
   }
 
-  createTable(data:Paciente[]){
+  createTable(data:Examen[]){
     this.dataSource = new MatTableDataSource(data);
     this.dataSource.sort = this.sort
   }
 
-  eliminarPorId(idPaciente:number){
-    this.service.eliminarPorId(idPaciente)
+  eliminarPorId(idExamen:number){
+    this.service.eliminarPorId(idExamen)
     .pipe(switchMap(()=> this.service.listar()))
     .subscribe(data => {
       this.createTable(data);
