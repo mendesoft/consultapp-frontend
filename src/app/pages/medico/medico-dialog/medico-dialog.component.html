@@ -1,0 +1,30 @@
+<mat-dialog-content>
+
+  <mat-toolbar>
+      <span>Medico Dialog</span>
+  </mat-toolbar>
+
+  <div class="example-container">
+      <mat-form-field>
+          <input matInput placeholder="Nombres" [(ngModel)]="medico.nombres">
+      </mat-form-field>
+
+      <mat-form-field>
+          <input matInput placeholder="Apellidos" [(ngModel)]="medico.apellidos">
+      </mat-form-field>
+
+      <mat-form-field>
+          <input matInput placeholder="Carnet" [(ngModel)]="medico.carnet">
+      </mat-form-field>
+
+      <mat-form-field>
+          <input matInput placeholder="Foto" [(ngModel)]="medico.foto">
+      </mat-form-field>
+
+      <img mat-card-image [src]="medico.foto" alt="For de Medico" *ngIf="medico.foto">
+  </div>
+
+  <button mat-raised-button color="primary" (click)="operate()">Done</button>
+  <button mat-raised-button color="accent" (click)="close()">Cancel</button>
+
+</mat-dialog-content>

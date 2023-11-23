@@ -58,7 +58,7 @@ export class PacienteComponent implements OnInit{
 }
 
   applyFilter(e:any){
-      this.dataSource.filter = e.target.value.trim();
+      this.dataSource.filter = e.target.value.trim().toLowerCase();
   }
 
   createTable(data:Paciente[]){

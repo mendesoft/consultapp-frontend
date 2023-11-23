@@ -7,8 +7,8 @@ import { ExamenComponent } from './examen/examen.component';
 import { ExamenEditarComponent } from './examen/examen-editar/examen-editar.component';
 import { EspecialidadComponent } from './especialidad/especialidad.component';
 import { EspecialidadEditarComponent } from './especialidad/especialidad-editar/especialidad-editar.component';
-import { MedicoComponent } from './medico/medico.component';
 import { Not403Component } from './not403/not403.component';
+import { MedicoComponent } from './medico/medico.component';
 
 export const PagesRoutes: Routes = [
   {
